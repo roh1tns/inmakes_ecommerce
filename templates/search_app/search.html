@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+    Search Results
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <p style="font-size: 1.6rem; margin-bottom: 2.4rem; text-align: center;">Showing results for "{{query}}"</p>
+    <div class="products">
+        {%if products%}
+            {%for product in products%}
+                <div class="product-card">
+                    <a href="{{product.get_url}}">
+                        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <img src="{{product.image.url}}" alt="{{product.name}}">
+                        </div>
+                        <h2>{{product.name}}</h2>
+                        <p>${{product.price}}</p>
+                    </a>
+                </div>
+            {%endfor%}
+        {%else%}
+            <p>No products found</p>
+        {%endif%}
+    </div>
+</div>
+{%endblock%}

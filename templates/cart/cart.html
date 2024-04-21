@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Cart
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="display: flex; justify-content: space-between;">
+        {% if not cart_items %}
+        <div>
+            <div class="text-center"><h1>Your Cart is empty</h1></div>
+        </div>
+        {% else %}
+        <div>
+            <div>
+                <h1 style="font-size: 3.6rem; margin-bottom: 2.4rem;">Your Cart</h1>
+            </div>
+            {%for item in cart_items %}
+            <a href="{%url 'cart:full_remove' item.product.id%}" style="display: block; color: red; text-decoration: none; width: 100%; font-size: 1.6rem; text-align: right;">Remove item from cart | X</a>
+            <div class="cart-item">
+                <div>
+                    <img src="{{item.product.image.url}}" alt="{{item.product.name}}">
+                </div>
+                <div>
+                    <h2>{{item.product.name}}</h2>
+                    <p>${{item.product.price}}</p>
+                    <p style="font-size: 1.8rem;"><a href="{%url 'cart:cart_remove' item.product.id%}" style="color: #fff; text-decoration: none;">-</a> | {{item.quantity}} | <a href="{%url 'cart:add_cart' item.product.id%}" style="color: #fff; text-decoration: none;">+</a></p>
+                    <p>Total amount: ${{item.sub_total}}</p>
+                </div>
+            </div>
+            {%endfor%}
+           
+        </div>
+        {%endif%}
+        <div class="checkout">
+            <h1>Checkout</h1>
+            <p>Total amount: ${{total}}</p>
+            <p>Please review your cart before proceeding to checkout</p>
+        </div>
+    </div>
+{%endblock%}

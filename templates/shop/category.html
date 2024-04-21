@@ -1,0 +1,45 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}
+    {%if category%}
+        {{category.name}}
+    {%else%}
+        All Products
+    {%endif%}
+{%endblock%}
+{%block content%}
+    <div class="container">
+        {%if category%}
+            <img src="{{category.image.url}}" alt="{{category.name}}">
+            <div>
+                <h1>{{category.name}}</h1>
+                <p>{{category.description}}</p>
+            </div>
+            
+        {%else%}
+            <img src="{%static 'img/banner.png'%}" alt="our products" class="container">
+            <div style="margin: 2.4rem 0;">
+                <h1 style="font-size: 2.4rem; text-align: center;">Our Product Collections</h1>
+                <p style="font-size: 1.6rem; text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi pariatur nulla sed aperiam praesentium magni, corporis velit nostrum! Veritatis praesentium labore amet quod sequi fuga quibusdam quaerat earum aut minus. orem ipsum dolor sit, amet consectetur adipisicing elit. Commodi pariatur nulla sed aperiam praesentium magni, corporis velit nostrum! Veritatis praesentium labore amet quod sequi fuga quibusdam quaerat earum aut minus. orem ipsum dolor sit, amet consectetur adipisicing elit. Commodi pariatur nulla sed aperiam praesentium magni, corporis velit nostrum! Veritatis praesentium labore amet quod sequi fuga quibusdam quaerat earum aut minus. orem ipsum dolor sit, amet consectetur adipisicing elit. Commodi pariatur nulla sed aperiam praesentium magni, corporis velit nostrum! Veritatis praesentium labore amet quod sequi fuga quibusdam quaerat earum aut minus.</p>
+            </div>
+        {%endif%}
+
+        <div class="products">
+            {%if products%}
+                {%for product in products%}
+                    <div class="product-card">
+                        <a href="{{product.get_url}}">
+                            <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                                <img src="{{product.image.url}}" alt="{{product.name}}">
+                            </div>
+                            <h2>{{product.name}}</h2>
+                            <p>${{product.price}}</p>
+                        </a>
+                    </div>
+                {%endfor%}
+            {%else%}
+                <p>No products found</p>
+            {%endif%}
+        </div>
+    </div>
+{%endblock%}

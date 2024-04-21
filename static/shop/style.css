@@ -1,0 +1,126 @@
+/* Dropdown styles */
+
+.dropdown {
+    max-width: 17rem;
+    position: relative;
+    width: 100%;
+  }
+  
+  .dropdown-btn {
+    background: #1d1f24;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+  }
+  
+  .arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #fff;
+    transition: transform ease-in-out 0.3s;
+  }
+  
+  .dropdown-content {
+    list-style: none;
+    position: absolute;
+    top: 4.4rem;
+    width: 100%;
+    visibility: hidden;
+  /*   overflow: hidden; */
+    transform: translateY(-1em);
+    transition: transform ease 0.3s;
+  }
+  
+  input[type="checkbox"]:checked ~ .dropdown-content {
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .dropdown-content li {
+    background: #2f3238;
+    border-radius: 0.5em;
+  }
+  
+  input[type="checkbox"]:checked + label > .arrow {
+    transform: rotate(180deg);
+  }
+  
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  .dropdown-content li:hover {
+    background: #1d1f24;
+  }
+  
+  .dropdown-content li a {
+    display: block;
+    font-size: 1.6rem;
+    padding: 0.7em 0.5em;
+    color: #fff;
+    margin: 0.1em 0;
+    text-decoration: none;
+  }
+
+
+.navbar-logo{
+    width: 3.5em;
+    margin-right: 2.4rem;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    padding: 1em 2em;
+    background: #1d1f24;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-link{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+.cart-item img{
+    height: 15rem;
+}
+
+.cart-item{
+    display: flex;
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+    border-bottom: #aaa 1px solid;
+    padding: 1.6rem 0.8rem;
+}
+
+.cart-item h2{
+    font-size: 2.4rem;
+}
+
+.cart-item p{
+    font-size: 1.6rem;
+}
+
+.checkout h1{
+    font-size: 3.2rem;
+    margin-bottom: 2.4rem;
+}
+
+.checkout p{
+    font-size: 1.6rem;
+    margin-bottom: 2.4rem;
+}
+
+.checkout{
+  text-align: center;
+}

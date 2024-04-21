@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Afacad', sans-serif;
+    background: #1d1f24;
+    color: #fff;
+}
+
+.container{
+    width: 130rem;
+    margin: 0 auto;
+}
+
+.product-card{
+    max-width: 30rem;
+    border: #777 1px solid;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.product-card img{
+    max-width: 100%;
+    max-height: 15.7rem;
+}
+
+.product-card p, .product-card h2{
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+.product-card a{
+    text-decoration: none;
+}
+
+.products{
+    margin-bottom: 2.4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    row-gap: 2.4rem;
+}
